@@ -47,6 +47,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/libraries/config.html
  */
 class CI_Model {
+    
+    public $table_name;
 
 	/**
 	 * Class constructor
@@ -77,4 +79,49 @@ class CI_Model {
 		return get_instance()->$key;
 	}
 
+    public function delete($id){
+        if(empty($id || is_numeric($id))){
+            return FALSE;
+        }
+        $res = $this->db->where("id",$id, FALSE)->delete($this->table_name);        
+        if(empty($res)){
+            return FALSE;
+        }
+        return TRUE;
+    }
+
+    public function edit($id,$common_info){
+        if(empty($id) || !is_numeric($id)){
+            return false;
+        }
+        return $this->db->where("id",$id)->update($this->table_name,$common_info);
+    }
+
+    function add($common_info)
+    {
+        if (empty($common_info)) {
+            return FALSE;
+        }
+        
+        if(!empty($common_info['flat_id'])){
+            if(!$this->is_flat_exists($common_info['flat_id'])){
+                throw new Exception("Квартира с указанным ID не существует",300);
+            }
+        }      
+        
+        $query = $this->db->insert($this->table_name, $common_info);        
+        if (!$query) {
+            return FALSE;
+        }
+        return $this->db->insert_id();
+    }
+
+    public function is_flat_exists($id){
+        $res = $this->db->where("id",$id)->get("flat");
+        $result = $res->result();       
+        if(count($result) == 0 ){
+            return FALSE;
+        }
+        return TRUE;
+    }
 }

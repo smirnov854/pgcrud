@@ -16,10 +16,17 @@
           </mappings>
         </serverdata>
       </paths>
-      <paths name="regru_telegrammbots">
+      <paths name="quizes">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="regru_telegrammbots">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/www/project.telegrammbots.ru" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

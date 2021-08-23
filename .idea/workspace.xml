@@ -1,8 +1,208 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ChangeListManager">
+    <list default="true" id="ee1fd98d-5c3c-4f71-ad84-41a0c82ea3f3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/application/controllers/Flat.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/controllers/Flat_meter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/controllers/Flat_person.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/controllers/Warnings.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/models/Flat_meter_model.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/models/Flat_model.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/models/Flat_person_model.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/models/Warning_model.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/flat/flat_add.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/flat/flat_list.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/flat_meter/flat_meter_add.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/flat_meter/flat_meter_list.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/flat_person/flat_person_add.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/flat_person/flat_person_list.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/warning/warning_add.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/warning/warning_list.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/pgcrud.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pgcrud.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/config/autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/autoload.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/User_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/User_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/includes/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/includes/menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/user/user_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/user/user_list.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/core/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/core/Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/core/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/core/Model.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit-mock-objects" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-token-stream" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/phpmailer/phpmailer" />
+      <path value="$PROJECT_DIR$/vendor/mikey179/vfsstream" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1wgv3rJydzvbPEXtYdZKXaZLAR1" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql&#10;sqlserver&#10;postgresql" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../nodejs_ws" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
-    <property name="last_opened_file_path" value="C:/nodejs/node.exe" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\pgcrud\application\views\warning" />
+      <recent name="C:\OpenServer\domains\pgcrud\application\models" />
+      <recent name="C:\OpenServer\domains\pgcrud\application\views\flat_meter" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ee1fd98d-5c3c-4f71-ad84-41a0c82ea3f3" name="Default Changelist" comment="" />
+      <created>1628892849917</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1628892849917</updated>
+      <workItem from="1628892850954" duration="34585000" />
+      <workItem from="1629224698777" duration="16000" />
+      <workItem from="1629225835802" duration="699000" />
+      <workItem from="1629229889657" duration="6080000" />
+      <workItem from="1629271126075" duration="3608000" />
+      <workItem from="1629328437571" duration="3244000" />
+      <workItem from="1629399806729" duration="3077000" />
+      <workItem from="1629581869277" duration="4551000" />
+      <workItem from="1629657690386" duration="2209000" />
+      <workItem from="1629664096020" duration="20814000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2472" y="197" key="#Deployment" timestamp="1629230072467">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2472" y="197" key="#Deployment/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629230072467" />
+    <state x="2472" y="197" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1629285759503">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2472" y="197" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629285759503" />
+    <state x="2660" y="280" key="FileChooserDialogImpl" timestamp="1629664105117">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2660" y="280" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629664105117" />
+    <state x="2567" y="378" width="377" height="208" key="Github.ShareDialog" timestamp="1628892941781">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2567" y="378" width="377" height="208" key="Github.ShareDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628892941781" />
+    <state x="2550" y="243" key="Github.UntrackedFilesDialog" timestamp="1628892954739">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2550" y="243" key="Github.UntrackedFilesDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628892954739" />
+    <state width="1292" height="122" key="GridCell.Tab.0.bottom" timestamp="1629750200467">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1292" height="122" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629750200467" />
+    <state width="1292" height="122" key="GridCell.Tab.0.center" timestamp="1629750200467">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1292" height="122" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629750200467" />
+    <state width="1292" height="122" key="GridCell.Tab.0.left" timestamp="1629750200467">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1292" height="122" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629750200467" />
+    <state width="1292" height="122" key="GridCell.Tab.0.right" timestamp="1629750200467">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1292" height="122" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629750200467" />
+    <state width="198" height="457" key="HiddenNamespacesPopup" timestamp="1629328546905">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="198" height="457" key="HiddenNamespacesPopup/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629328546905" />
+    <state x="2636" y="262" key="NewPhpClassDialog" timestamp="1629404014534">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2636" y="262" key="NewPhpClassDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629404014534" />
+    <state x="2715" y="462" key="NewPhpFileDialog" timestamp="1629750228273">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2715" y="462" key="NewPhpFileDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629750228273" />
+    <state x="2381" y="171" key="SettingsEditor" timestamp="1629229946792">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2381" y="171" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629229946792" />
+    <state x="2460" y="194" key="com.intellij.database.dbimport.ImportDialog" timestamp="1629238914130">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2460" y="194" key="com.intellij.database.dbimport.ImportDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629238914130" />
+    <state x="2405" y="269" width="616" height="542" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1629238841067">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2405" y="269" width="616" height="542" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629238841067" />
+    <state x="464" y="0" width="1210" height="1055" key="dock-window-1" timestamp="1629674345360">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="464" y="0" width="1210" height="1055" key="dock-window-1/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629674345360" />
+    <state x="487" y="84" width="1221" height="494" key="dock-window-2" timestamp="1629737762899">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="487" y="84" width="1221" height="494" key="dock-window-2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629737762899" />
+    <state x="192" y="31" width="1580" height="1055" key="dock-window-3" timestamp="1629750147160">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="192" y="31" width="1580" height="1055" key="dock-window-3/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629750147160" />
+    <state x="2536" y="245" key="run.anything.popup" timestamp="1629582535800">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2536" y="245" key="run.anything.popup/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629582535800" />
   </component>
 </project>

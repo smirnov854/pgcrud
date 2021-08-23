@@ -113,16 +113,13 @@ class User extends CI_Controller
         $search_param = [
             "user_id"=>$user_data['id'],
             "role_id"=>$user_data['role_id'],
-        ];
-        $total_rows = $this->db->query("SELECT FOUND_ROWS() as cnt")->result();
-        $objects = $this->object_model->get_list($search_param);
+        ];   
         $this->load->view('includes/header');
         $this->load->view("includes/menu");
         $this->load->view("user/user_list", [
             "users"=>$users,
-            "roles"=>$roles,
-            "objects"=>$objects,
-            "total_rows"=>$total_rows[0]->cnt
+            "roles"=>$roles,       
+            "total_rows"=>10
         ]);
         $this->load->view('includes/footer');
     }
@@ -133,18 +130,16 @@ class User extends CI_Controller
         $params = json_decode(file_get_contents('php://input'));
         $search_params = array(            
             "fio" => $params->fio,
-            "role_id" => $params->role,
-            'object_id'=>$params->object_id,
+            "role_id" => $params->role,            
             "limit"=>25,
             "offset"=>(!empty($page) ? ($page-1)*25:0)
         );
-        $users = $this->user_model->get_user_list($search_params);
-        $total_rows = $this->db->query("SELECT FOUND_ROWS() as cnt")->result();
+        $users = $this->user_model->get_user_list($search_params);        
 
         $result = [
             "status"=>200,
             "content"=>$users,
-            "total_rows"=>$total_rows[0]->cnt
+            "total_rows"=>10
         ];
         echo json_encode($result);
     }

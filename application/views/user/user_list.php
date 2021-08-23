@@ -6,13 +6,7 @@
                 <option></option>
                 <option v-for="role in roles" :value="role.id">{{role.name}}</option>
             </select>
-        </div>
-        <div class="form-group col-lg-3 col-md-6 col-sm-12 float-left">
-            <label class="col-lg-3 col-md-6 col-sm-12 float-left">Объект</label>
-            <select class="col-lg-9 col-md-6 col-sm-12 float-left form-control" v-model="object_search" class="form-control">
-                <option v-for="object in objects" :value="object.id">{{object.name}}</option>
-            </select>
-        </div>
+        </div>        
         <div class="form-group col-lg-3 col-md-6 col-sm-12 float-left">
             <label class="col-lg-3 c float-left">ФИО</label>
             <input class="form-control col-lg-9 float-left" type="text" v-model="fio_search">
@@ -25,11 +19,10 @@
     <table class="table table-bordered">
         <thead>
         <tr>
-            <th>#</th>
-            <th>Почта</th>
+            <th>#</th>          
             <th>ФИО</th>
-            <th>Роль</th>
-            <th>Объекты</th>
+            <th>логин</th>
+            <th>Роль</th>           
             <th>Действия</th>
         </tr>
         </thead>
@@ -37,12 +30,11 @@
 
         <tr class="user_row" v-for="(user, index) in users">
             <td>{{user.id}}</td>
-            <td>{{user.email}}</td>
+            <td>{{user.login}}</td>
             <td>{{user.name}}</td>
-            <td>{{user.role_name}}</td>
-            <td class="td_object_list" height="50px" v-bind:title="user.object_names_title">{{user.object_names}}</td>
+            <td>{{user.role_name}}</td>           
             <td>
-                <span class="fa fa-pencil edit-user" v-on:click="edit_user(user.id,user.email,user.name,user.role_name,user.object_ids,user.role_id)"></span>
+                <span class="fa fa-pencil edit-user" v-on:click="edit_user(user.id,user.login,user.name,user.role_name,user.role_id)"></span>
                 <span class="fa fa-remove edit-user float-right" v-on:click="delete_user(index,user.id)"></span>
             </td>
         </tr>
@@ -59,19 +51,14 @@
                     <input type="hidden" v-model="new_user.edit_id">
                     <div class="alert alert-danger" v-if="error">{{error}}</div>
                     <div class="form-group">
-                        <input class="form-control" type="email" v-model="new_user.email" placeholder="email" required>
+                        <input class="form-control" type="text" v-model="new_user.login" placeholder="login" required>
                     </div>
                     <div class="form-group">
                         <input class="form-control" type="text" v-model="new_user.user_name" placeholder="Фамилия Имя Отчество" required>
                     </div>
                     <div class="form-group">
                         <input class="form-control" type="password" v-model="new_user.password" placeholder="Пароль" required>
-                    </div>
-                    <div class="form-group">
-                        <select class="form-control" v-model="new_user.objects" required multiple>
-                            <option v-for="{id,name} in objects" :value="id">{{name}}</option>
-                        </select>
-                    </div>
+                    </div>                   
                     <div class="form-group">
                         <select class="form-control" v-model="new_user.role_id" required>
                             <option v-for="{id,name} in roles" :value="id">{{name}}</option>
@@ -98,11 +85,10 @@
             total_rows: <?=$total_rows?>,
             per_page: 25,
             pages:<?=$total_rows >25 ? '[1,2]' : '[]'?>,
-            fio_search: '',
-            object_search: '',
+            fio_search: '',           
             error: "",
             new_user: {
-                edit_id: '0', email: '', role_id: '', user_name: '', password: '', objects: []
+                edit_id: '0', login: '', role_id: '', user_name: '', password: ''
             },
             //columns: ['id', 'fio', 'email', 'role_id'],
             users: [
@@ -110,13 +96,9 @@
                 {
                     id: <?=$row->id?>,
                     name: '<?=$row->name?>',
-                    email: '<?=$row->email?>',
+                    login: '<?=$row->login?>',
                     role_id: '<?=$row->role_id?>',
-                    role_name: '<?=$row->role_name?>',
-                    object_names : '<?=$row->object_names?>',
-                    object_names_title : '<?=$row->object_names_title?>',
-                    object_cnt: '<?= !empty($row->object_cnt) ? $row->object_cnt : ""?>',
-                    object_ids: '<?= !empty($row->object_ids) ? $row->object_ids : ""?>'
+                    role_name: '<?=$row->role_name?>',                    
                 },
                 <?php endforeach;?>
             ],
@@ -124,12 +106,7 @@
                 <?php foreach($roles as $row):?>
                 {id: <?=$row->id?>, name: '<?=$row->name?>'},
                 <?php endforeach;?>
-            ],
-            objects: [
-                <?php foreach($objects as $row):?>
-                {id: <?=$row->id?>, name: '<?=$row->name?>'},
-                <?php endforeach;?>
-            ],
+            ]           
         },
         methods: {
             add_new_user: function (new_user) {
@@ -147,8 +124,7 @@
                     user_name: new_user.user_name,
                     role_id: new_user.role_id,
                     email: new_user.email,
-                    password: new_user.password,
-                    objects: new_user.objects
+                    password: new_user.password,                   
                 }).then(function (result) {
                     switch (result.data.status) {
                         case 200:
@@ -175,18 +151,12 @@
                 }
                 return errors;
             },
-            edit_user: function (id, email, fio, role_name, object_ids, role_id) {
+            edit_user: function (id, login, fio, role_name,  role_id) {
                 this.new_user.edit_id = id
-                this.new_user.email = email
+                this.new_user.login = login
                 this.new_user.role_id = role_id
                 this.new_user.user_name = fio
-                this.new_user.role_name = role_name                
-                if (object_ids.length > 0) {
-                    var object_list = object_ids.split(",");
-                    for (var i in object_list) {
-                        this.new_user.objects.push(object_list[i])
-                    }
-                }
+                this.new_user.role_name = role_name    
                 this.$refs.add_button.click()
             },
             delete_user: function (index, id) {
@@ -207,8 +177,7 @@
             },
             search: function (page) {                
                 axios.post("/user/search/"+page, {
-                    role: this._data.role_search,
-                    object_id: this._data.object_search,
+                    role: this._data.role_search,                    
                     fio: this._data.fio_search,
                 }).then(function (result) {
                     switch (result.data.status) {
@@ -216,12 +185,10 @@
                             el._data.users.splice()
                             el._data.users = result.data.content;
                             el._data.total_rows = result.data.total_rows;
-                            el._data.pages.splice(0);
-                            
+                            el._data.pages.splice(0);                            
                                 for(let z=1;z<=Math.ceil(el._data.total_rows/el._data.per_page);z++){
                                     el._data.pages.push(z)
                                 }
-                            
                             break;
                         case 300:
                             break;

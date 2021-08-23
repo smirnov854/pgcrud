@@ -74,12 +74,12 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> '',
-	'hostname' => 'server155.hosting.reg.ru',
-	'username' => 'u0507831_test',
-	'password' => 'jM3yJ6eI6hrB9h',
-	'database' => 'u0507831_test',
-	'dbdriver' => 'mysqli',
+	'dsn'	=> '',//'pgsql:host=91.211.147.42;port=3001;dbname=tmp_database',
+	'hostname' => '91.211.147.42',	
+	'username' => 'postgres',
+	'password' => 'root',
+	'database' => 'tmp_database',
+	'dbdriver' => 'postgre',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
@@ -92,5 +92,6 @@ $db['default'] = array(
 	'compress' => FALSE,
 	'stricton' => FALSE,
 	'failover' => array(),
-	'save_queries' => TRUE
+	'save_queries' => TRUE,
+    'port'=>'3001',
 );
