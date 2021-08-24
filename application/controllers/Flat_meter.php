@@ -28,6 +28,7 @@ class Flat_meter extends CI_Controller
         ];
         echo json_encode($result);
     }
+    
     public function search($page){
         
         $user_data = $this->session->userdata();

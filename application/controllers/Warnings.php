@@ -29,6 +29,8 @@ class Warnings extends CI_Controller
         $params = json_decode(file_get_contents('php://input'));
         try {
             $search_params = [
+                "person_id"=>$params->person_id,
+                "flat_id"=>$params->flat_id,
                 "limit"=>25,
                 "offset"=>(!empty($page) ? ($page-1)*25:0)
             ];
@@ -39,7 +41,7 @@ class Warnings extends CI_Controller
             $result = [
                 "status" => 200,
                 "content" => $meter_list,
-                "total_rows"=>$meter_list[0]->total_count,
+                "total_rows"=>(!empty($meter_list) ? $meter_list[0]->total_count : 0),
             ];
         } catch (Exception $ex) {
             $result = array("message" => $ex->getMessage(),
@@ -65,8 +67,64 @@ class Warnings extends CI_Controller
         }
         echo json_encode($result);
     }
+
+    public function add_new_warn(){
+        $params = json_decode(file_get_contents('php://input'));
+        $common_info = array(
+            "flat_id" => $params->flat_id,
+            "person_id" => $params->person_id,
+            "phone" => $params->phone,
+            "message" => $params->message,
+        );
+        try {
+            if (empty($common_info['flat_id']) || empty($common_info['person_id']) || empty($common_info['phone']) || empty($common_info['message'])){
+                throw new Exception("Ошибка заполнения формы! Все поля обязательны!", 300);
+            }
+            $res = $this->warning_model->add($common_info);
+            if (!$res) {
+                throw new Exception("Ошибка обращения к базе данных!", 2);
+            }
+            $result = [
+                "status" => 200,
+                "message" => "Предупреждение добавлено!",
+                "content"=>[]
+            ];
+        } catch (Exception $ex) {
+            $result = array("message" => $ex->getMessage(),
+                "status" => $ex->getCode());
+        }
+        echo json_encode($result);
+    }
+
+    public function edit_warn($id){
+        $params = json_decode(file_get_contents('php://input'));
+        $common_info = array(
+            "flat_id" => $params->flat_id,
+            "person_id" => $params->person_id,
+            "phone" => $params->phone,
+            "message" => $params->message,
+        );
+        try {
+            if (empty($common_info['flat_id']) || empty($common_info['person_id']) || empty($common_info['phone']) || empty($common_info['message'])){
+                throw new Exception("Ошибка заполнения формы! Все поля обязательны!", 300);
+            }
+            $res = $this->warning_model->edit($id,$common_info);
+            if (!$res) {
+                throw new Exception("Ошибка обращения к базе данных!", 2);
+            }
+            $result = [
+                "status" => 200,
+                "message" => "Данные отредактированы!",
+                "content"=>[]
+            ];
+        } catch (Exception $ex) {
+            $result = array("message" => $ex->getMessage(),
+                "status" => $ex->getCode());
+        }
+        echo json_encode($result);
+    }    
     
-    
+    /*
     public function generate_data(){       
         $insert_arr = [           
             "person_id"=>14,
@@ -82,4 +140,5 @@ class Warnings extends CI_Controller
             echo "<br/>";
         }        
     }
+    */
 }

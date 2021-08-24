@@ -1,37 +1,26 @@
-<div id="add_flat_meter" class="modal  fade" role="dialog" tabindex="-1" aria-hidden="true">
+<div id="add_warning" class="modal  fade" role="dialog" tabindex="-1" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <div class="modal-title">
                     <span v-if="new_row.edit_id>0">Редактирование</span>
-                    <span v-if="new_row.edit_id==0">Добавление</span> датчика
+                    <span v-if="new_row.edit_id==0">Добавление</span> предупреждения
                     <span v-if="new_row.edit_id>0">ID {{new_row.edit_id}}</span>
                 </div>
             </div>
             <div class="modal-body">
-                <div class="alert alert-danger" v-if="error">{{error}}</div>
-                <div class="form-row col-lg-12 col-md-12 col-sm-12 float-left my-2">
-                    <input type="text" class="form-control" v-model="new_row.name" placeholder="Наименование">
-                </div>
+                <div class="alert alert-danger" v-if="error">{{error}}</div>               
                 <div class="form-row col-lg-12 col-md-12 col-sm-12 float-left my-2">
                     <input type="text" class="form-control" v-model="new_row.flat_id" placeholder="ID квартиры">
                 </div>
                 <div class="form-row col-lg-12 col-md-12 col-sm-12 float-left my-2">
-                    <input type="text" class="form-control" v-model="new_row.acc_id" placeholder="ID счетчика">
+                    <input type="text" class="form-control" v-model="new_row.person_id" placeholder="ID жильца">
                 </div>
                 <div class="form-row col-lg-12 col-md-12 col-sm-12 float-left my-2">
-                    <input type="text" class="form-control" v-model="new_row.port" placeholder="Порт">
+                    <input type="text" class="form-control" v-model="new_row.phone" placeholder="Телефон">
                 </div>
                 <div class="form-row col-lg-12 col-md-12 col-sm-12 float-left my-2">
-                    <input type="text" class="form-control" v-model="new_row.value" placeholder="Значение">
-                </div>
-                <div class="form-row col-lg-12 col-md-12 col-sm-12 float-left my-2">
-                    <select class="form-control float-left col-lg-12" v-model="new_row.meter_type_id">
-                        <option v-for="{id,name} in meter_type_list" :value="id">{{name}}</option>
-                    </select>
-                </div>
-                <div class="form-row col-lg-12 col-md-12 col-sm-12 float-left my-2">
-                    <input type="text" class="form-control" v-model="new_row.tube" placeholder="Номер стояка">
+                    <input type="text" class="form-control" v-model="new_row.message" placeholder="Сообщение">
                 </div>
             </div>
             <div class="modal-footer">

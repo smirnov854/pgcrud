@@ -1,4 +1,4 @@
-<div id="add_user_modal" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true">
+<div id="add_user_modal" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -22,7 +22,7 @@
                     <input class="form-control" type="text" v-model="new_user.name" placeholder="Фамилия Имя Отчество" required>
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="password" v-model="new_user.password" placeholder="Пароль" required>
+                    <input class="form-control" type="text" v-model="new_user.password" placeholder="Пароль" required>
                 </div>              
             </div>
             <div class="modal-footer">

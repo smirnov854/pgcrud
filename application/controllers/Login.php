@@ -80,4 +80,11 @@ class Login extends CI_Controller {
         $this->load->view("includes/menu");
         $this->load->view("includes/footer");
     }
+    
+    public function no_rights(){
+        $this->load->view("includes/header");
+        $this->load->view("includes/menu");
+        $this->load->view("includes/no_rights");
+        $this->load->view("includes/footer");
+    }
 }

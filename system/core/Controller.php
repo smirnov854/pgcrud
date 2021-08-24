@@ -83,11 +83,43 @@ class CI_Controller {
         if($this->uri->segment(1) != "login"){
             if(empty($this->session->userdata("role_id"))){
                 redirect("login");
-            }    
-        }
-        
+            }
+            $user_data = $this->session->userdata();
+            if($user_data['role_id'] != 1){
+                if(!$this->check_rights($user_data['role_id'],$this->uri->segment(1),$this->uri->segment(2))){
+                    if(stripos($_SERVER['HTTP_ACCEPT'],"json") !== FALSE){
+                        echo json_encode(["status"=>325,"message"=>"У вас нет прав для данного действия"]);
+                        die();
+                    }else{
+                        redirect("login/no_rights");
+                    }
+                }    
+            }
+        }        
 		log_message('info', 'Controller Class Initialized');
 	}
+	
+	public function check_rights($role_id,$controller,$method){
+	    $res = $this->db->select("id")
+                        ->where("controller",$controller)
+                        ->where("method",$method)
+                        ->get("rights");
+	    $result = $res->result();
+	    if(count($result) == 0){
+	        return TRUE;
+        }
+	    $res = $this->db->join("rights","rights.id=role_rights.right_id","LEFT")
+                        ->where("controller",$controller)
+                        ->where("method",$method)
+                        ->where("role_id",$role_id)                 
+                        ->get("role_rights");
+	    
+	    $result = $res->result();
+	    if(count($result) > 0){
+	        return TRUE;
+        }
+	    return FALSE;
+    }
 
 	// --------------------------------------------------------------------
 

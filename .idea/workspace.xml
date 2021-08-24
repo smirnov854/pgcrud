@@ -2,35 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee1fd98d-5c3c-4f71-ad84-41a0c82ea3f3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/application/controllers/Flat.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/controllers/Flat_meter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/controllers/Flat_person.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/controllers/Warnings.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/models/Flat_meter_model.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/models/Flat_model.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/models/Flat_person_model.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/models/Warning_model.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/flat/flat_add.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/flat/flat_list.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/flat_meter/flat_meter_add.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/flat_meter/flat_meter_list.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/flat_person/flat_person_add.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/flat_person/flat_person_list.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/warning/warning_add.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/warning/warning_list.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pgcrud.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pgcrud.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/controllers/Role.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/models/Role_model.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/includes/no_rights.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/user/role_add.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/user/role_list.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/user/user_add.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/autoload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Flat_meter.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Flat_meter.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Warnings.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Warnings.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/User_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/User_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Warning_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Warning_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/flat/flat_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/flat/flat_add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/flat_meter/flat_meter_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/flat_meter/flat_meter_add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/flat_meter/flat_meter_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/flat_meter/flat_meter_list.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/flat_person/flat_person_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/flat_person/flat_person_add.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/includes/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/includes/menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/objects/object_list.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/user/user_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/user/user_list.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/warning/warning_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/warning/warning_add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/warning/warning_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/warning/warning_list.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/system/core/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/core/Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/core/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/core/Model.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,14 +86,16 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../nodejs_ws" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/application/models" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\OpenServer\domains\pgcrud\application\views\warning" />
       <recent name="C:\OpenServer\domains\pgcrud\application\models" />
+      <recent name="C:\OpenServer\domains\pgcrud\application\views\user" />
+      <recent name="C:\OpenServer\domains\pgcrud\application\controllers" />
+      <recent name="C:\OpenServer\domains\pgcrud\application\views\warning" />
       <recent name="C:\OpenServer\domains\pgcrud\application\views\flat_meter" />
     </key>
   </component>
@@ -120,12 +116,24 @@
       <workItem from="1629399806729" duration="3077000" />
       <workItem from="1629581869277" duration="4551000" />
       <workItem from="1629657690386" duration="2209000" />
-      <workItem from="1629664096020" duration="20814000" />
+      <workItem from="1629664096020" duration="30861000" />
     </task>
+    <task id="LOCAL-00001" summary="add CRUD for tables&#10;backup data">
+      <created>1629750271175</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1629750271175</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add CRUD for tables&#10;backup data" />
+    <option name="LAST_COMMIT_MESSAGE" value="add CRUD for tables&#10;backup data" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2472" y="197" key="#Deployment" timestamp="1629230072467">
@@ -136,6 +144,10 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2472" y="197" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629285759503" />
+    <state x="2505" y="107" key="CommitChangelistDialog2" timestamp="1629750270235">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2505" y="107" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629750270235" />
     <state x="2660" y="280" key="FileChooserDialogImpl" timestamp="1629664105117">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -148,22 +160,22 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2550" y="243" key="Github.UntrackedFilesDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1628892954739" />
-    <state width="1292" height="122" key="GridCell.Tab.0.bottom" timestamp="1629750200467">
+    <state width="1292" height="122" key="GridCell.Tab.0.bottom" timestamp="1629763200603">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1292" height="122" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629750200467" />
-    <state width="1292" height="122" key="GridCell.Tab.0.center" timestamp="1629750200467">
+    <state width="1292" height="122" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629763200603" />
+    <state width="1292" height="122" key="GridCell.Tab.0.center" timestamp="1629763200603">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1292" height="122" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629750200467" />
-    <state width="1292" height="122" key="GridCell.Tab.0.left" timestamp="1629750200467">
+    <state width="1292" height="122" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629763200603" />
+    <state width="1292" height="122" key="GridCell.Tab.0.left" timestamp="1629763200603">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1292" height="122" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629750200467" />
-    <state width="1292" height="122" key="GridCell.Tab.0.right" timestamp="1629750200467">
+    <state width="1292" height="122" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629763200603" />
+    <state width="1292" height="122" key="GridCell.Tab.0.right" timestamp="1629763200603">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1292" height="122" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629750200467" />
+    <state width="1292" height="122" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629763200603" />
     <state width="198" height="457" key="HiddenNamespacesPopup" timestamp="1629328546905">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -172,22 +184,34 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2636" y="262" key="NewPhpClassDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629404014534" />
-    <state x="2715" y="462" key="NewPhpFileDialog" timestamp="1629750228273">
+    <state x="2715" y="462" key="NewPhpFileDialog" timestamp="1629762045665">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2715" y="462" key="NewPhpFileDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629750228273" />
+    <state x="2715" y="462" key="NewPhpFileDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629762045665" />
     <state x="2381" y="171" key="SettingsEditor" timestamp="1629229946792">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2381" y="171" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629229946792" />
+    <state x="2472" y="272" key="Vcs.Push.Dialog.v2" timestamp="1629750275163">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2472" y="272" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629750275163" />
+    <state x="2689" y="323" width="491" height="439" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1629761147489">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2689" y="323" width="491" height="439" key="com.intellij.database.actions.DdlActions$CreateObject$1/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629761147489" />
+    <state x="2750" y="424" width="316" height="249" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1629761122834">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2750" y="424" width="316" height="249" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629761122834" />
     <state x="2460" y="194" key="com.intellij.database.dbimport.ImportDialog" timestamp="1629238914130">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2460" y="194" key="com.intellij.database.dbimport.ImportDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629238914130" />
-    <state x="2405" y="269" width="616" height="542" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1629238841067">
+    <state x="2405" y="269" width="675" height="672" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1629761233218">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2405" y="269" width="616" height="542" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629238841067" />
+    <state x="2405" y="269" width="675" height="672" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629761233218" />
     <state x="464" y="0" width="1210" height="1055" key="dock-window-1" timestamp="1629674345360">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -196,10 +220,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="487" y="84" width="1221" height="494" key="dock-window-2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629737762899" />
-    <state x="192" y="31" width="1580" height="1055" key="dock-window-3" timestamp="1629750147160">
+    <state x="192" y="31" width="1580" height="1055" key="dock-window-3" timestamp="1629750842058">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="192" y="31" width="1580" height="1055" key="dock-window-3/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629750147160" />
+    <state x="192" y="31" width="1580" height="1055" key="dock-window-3/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629750842058" />
+    <state x="693" y="0" width="1221" height="1055" key="dock-window-4" timestamp="1629755959644">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="693" y="0" width="1221" height="1055" key="dock-window-4/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629755959644" />
     <state x="2536" y="245" key="run.anything.popup" timestamp="1629582535800">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>

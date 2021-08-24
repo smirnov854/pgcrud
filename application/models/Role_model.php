@@ -1,8 +1,8 @@
 <?php
 
-class User_model extends CI_Model
+class Role_model extends CI_Model
 {
-    public $table_name = "user";
+    public $table_name = "role";
     
     public function get_list($search_params = [])
     {        
@@ -10,16 +10,12 @@ class User_model extends CI_Model
 
         if(!empty($role_id)){
             $this->db->where("u.role_id",$role_id,FALSE);            
-        }
+        }        
+       
         
-        if(!empty($fio)){
-            $this->db->where("u.name LIKE '%$fio%'",NULL,FALSE);            
-        }
-        
-        $res = $this->db->select("u.*,  r.id as role_id, r.name as role_name, count(*) OVER() AS total_count",FALSE)
-                         ->join("role r","r.id=u.role_id","LEFT",FALSE)
+        $res = $this->db->select("r.*,   count(*) OVER() AS total_count",FALSE)                         
                          ->order_by('id DESC')
-                         ->get("user u", FALSE);      
+                         ->get("role r", FALSE);      
               
         if (!$res) {
             return FALSE;

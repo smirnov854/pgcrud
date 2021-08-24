@@ -1,22 +1,29 @@
 <div id="warning_row_controller" class="justify-content-center mx-4 my-4">
     <div>
-        <div class="form-group col-lg-4 float-left"></div>
+        <div class="form-group col-lg-4 col-md-6 col-sm-12 float-left">
+            <label class="col-lg-4 c float-left">ID квартиры</label>
+            <input class="form-control col-lg-8 float-left" type="number" v-model="flat_id">
+        </div>
+        <div class="form-group col-lg-4 col-md-6 col-sm-12 float-left">
+            <label class="col-lg-4 c float-left">ID жильца</label>
+            <input class="form-control col-lg-8 float-left" type="text" v-model="person_id">
+        </div>
         <div class="form-group col-lg-4 float-left">
             <button class="btn btn-success search_button" v-on:click="search(0)">Найти</button>
-            <button class="btn btn-primary add_job" data-toggle="modal" data-target="#add_job">Добавить</button>
+            <button class="btn btn-primary add_warning" data-toggle="modal" data-target="#add_warning" ref="add_button">Добавить</button>
         </div>
         <div class="clearfix"></div>
-        <div v-if="total_rows">Всего записей : {{total_rows}}</div>
+        <div>Всего записей : {{total_rows}}</div>
     </div>
-
+    <?php $this->load->view("/warning/warning_add");?>
     <div>
-        <paginator v-bind:pages="pages" v-bind:current_page="current_page"></paginator>
+        <paginator v-bind:total_pages="pages" v-bind:current_page="current_page"></paginator>
 
         <table class="table table-bordered" v-if="warning_list.length>0">
             <thead>
             <tr>
                 <th>#</th>
-                <th>stamp</th>
+                <th>Время</th>
                 <th>Квартира</th>
                 <th>Жилец</th>
                 <th>Телефон</th>
@@ -44,27 +51,17 @@
             </tbody>
         </table>
 
-        <paginator v-bind:pages="pages" v-bind:current_page="current_page"></paginator>
+        <paginator v-bind:total_pages="pages" v-bind:current_page="current_page"></paginator>
     </div>
 </div>
-
 <script src="/resources/js/components.js"></script>
-<script src="https://unpkg.com/vue-pure-lightbox/dist/VuePureLightbox.umd.min.js"></script>
 <script type="text/javascript">
     el = new Vue({
-        el: "#warning_row_controller",
-        components: {
-            'vue-pure-lightbox': window.VuePureLightbox,
-        },
-        data: {
-            options: {
-                // https://momentjs.com/docs/#/displaying/
-                format: 'DD.MM.YYYY',
-                useCurrent: false,
-                showClear: true,
-                showClose: true,
-            },
+        el: "#warning_row_controller",        
+        data: {           
             current_page: 0,
+            flat_id:0,
+            person_id:0,
             total_pages: 0,
             total_rows: 0,
             per_page: 25,
@@ -72,12 +69,16 @@
             date_from: '',
             date_to: '',
             error: "",
-            warning_list: []
+            warning_list: [],
+            new_row: {edit_id:0}
         },
         methods: {
             search: function (page = 0) {
                 this.current_page = page
-                axios.post("/warnings/search/" + page, {}).then(function (result) {
+                axios.post("/warnings/search/" + page, {
+                    person_id: el._data.person_id,
+                    flat_id : el._data.flat_id
+                }).then(function (result) {
                     switch (result.data.status) {
                         case 200:
                             el._data.warning_list.splice()
@@ -86,7 +87,8 @@
                             el._data.total_rows = result.data.total_rows;
                             el._data.total_pages = Math.ceil(el._data.total_rows / el._data.per_page);
 
-                            if (el._data.total_rows > 25) {
+                            if(el._data.total_rows > 25){
+                                el._data.pages.splice(0);
                                 el._data.pages.push(1)
                                 let tmp_page = page === 0 ? page + 1 : page;
                                 let z = 0;
@@ -106,7 +108,7 @@
                                         break;
                                     }
                                 }
-                                if (el._data.total_pages !== page) {
+                                if(el._data.total_pages !== page){
                                     el._data.pages.push(el._data.total_pages)
                                 }
                                 el._data.pages.sort(function (a, b) {
@@ -173,8 +175,17 @@
             },
             check_form: function (new_row) {
                 var errors = [];
-                if (!new_row.name) {
-                    errors.push("Укажите наименование!");
+                if (!new_row.flat_id) {
+                    errors.push("Укажите ID квартиры!");
+                }
+                if (!new_row.person_id) {
+                    errors.push("Укажите ID жильца!");
+                }
+                if (!new_row.phone) {
+                    errors.push("Укажите телефон!");
+                }
+                if (!new_row.message) {
+                    errors.push("Укажите текст сообщения!");
                 }
                 return errors;
             },

@@ -75,21 +75,10 @@
 </div>
 
 <script src="/resources/js/components.js"></script>
-<script src="https://unpkg.com/vue-pure-lightbox/dist/VuePureLightbox.umd.min.js"></script>
 <script type="text/javascript">
     el = new Vue({
-        el: "#meter_row_controller",
-        components: {
-            'vue-pure-lightbox': window.VuePureLightbox,
-        },
-        data: {
-            options: {
-                // https://momentjs.com/docs/#/displaying/
-                format: 'DD.MM.YYYY',
-                useCurrent: false,
-                showClear: true,
-                showClose: true,
-            },
+        el: "#meter_row_controller",        
+        data: {            
             current_page: 0,
             total_pages: 0,
             total_rows: 0,

@@ -1,49 +1,36 @@
 <div id="vue-container" class="container-fluid">
-    <div class="col-lg-12 col-md-12 col-sm-12 my-3">
-        <div class="form-group col-lg-3 col-md-6 col-sm-12 float-left">
-            <label class="col-lg-3 c float-left">ФИО</label>
-            <input class="form-control col-lg-9 float-left" type="text" v-model="name">
-        </div>
-        <div class="form-group col-lg-3 col-md-6 col-sm-12 float-left">            
-            <select class="form-control float-left col-lg-12" v-model="role_id">
-                <option v-for="{id,name} in role_list" :value="id">{{name}}</option>
-            </select>
-        </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 my-3">       
         <button class="btn btn-success float-left" v-on:click="search(0)">Найти</button>
-        <button class="btn btn-primary add_users float-right" data-toggle="modal" data-target="#add_user_modal" ref="add_button">Добавить</button>
+        <button class="btn btn-primary add_users float-right" data-toggle="modal" data-target="#add_role_modal" ref="add_button">Добавить</button>
         <div class="clearfix"></div>
         <div>Всего записей : {{total_rows}}</div>
     </div>
     <div class="clearfix"></div>
     <paginator v-bind:total_pages="pages" v-bind:current_page="current_page"></paginator>
-    <table class="table table-bordered" v-if="users.length>0">
+    <table class="table table-bordered" v-if="role_list.length>0">
         <thead>
         <tr>
-            <th>#</th>
-            <th>ФИО</th>
+            <th>#</th>            
             <th>Роль</th>
-            <th>Логин</th>
-            <th>Пароль</th>
-            <th>Действия</th>
+            <th>Список разрешений</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
 
-        <tr class="user_row" v-for="(user, index) in users">
-            <td>{{user.id}}</td>                     
-            <td>{{user.name}}</td>
-            <td>{{user.role_name}} ({{user.role_id}})</td>
-            <td>{{user.login}}</td>            
-            <td>{{user.password}}</td>
+        <tr class="user_row" v-for="(role, index) in role_list">
+            <td>{{role.id}}</td>
+            <td>{{role.name}}</td>
+            <td>{{role.name}}</td>            
             <td>
                 <span class="fa fa-pencil edit-user" v-on:click="edit_row(index)"></span>
-                <span class="fa fa-remove edit-user float-right" v-on:click="delete_row(index,user.id)"></span>
+                <span class="fa fa-remove edit-user float-right" v-on:click="delete_row(index,role.id)"></span>
             </td>
         </tr>
         </tbody>
     </table>
     <paginator v-bind:total_pages="pages" v-bind:current_page="current_page"></paginator>
-    <?php $this->load->view("user/user_add");?>
+    <?php $this->load->view("user/role_add");?>
 </div>
 
 <script src="/resources/js/components.js"></script>
@@ -51,8 +38,8 @@
     el = new Vue({
         el: "#vue-container",
         data: {
-            name: '',            
-            role_id: '',           
+            name: '',
+            role_id: '',
             page_number: 0,
             current_page: 1,
             total_rows: 0,
@@ -61,27 +48,19 @@
             fio_search: '',
             error: "",
             new_row : { edit_id: '0',  },
-            users: [],
-            role_list: []
+            role_list: [],            
         },
-        methods: {
-            get_role_list:function(){
-                axios.post("/user/get_role_list/", {}).then(function (result) {
-                    el._data.role_list = result.data.contents;
-                }).catch(function (e) {
-                    console.log(e)
-                })
-            },
-            add_row: function (new_row) {                
+        methods: {           
+            add_row: function (new_row) {
                 var errors = this.check_form(new_row)
                 if (errors.length > 0) {
                     this.error = errors.join(" ")
                     return;
                 }
                 
-                var url = "/user/add_new_user";
+                var url = "/role/add_new_role";
                 if (this.new_row.edit_id != 0) {
-                    url = "/user/edit_user/" + this.new_row.edit_id;
+                    url = "/role/edit_role/" + this.new_row.edit_id;
                 }
 
                 axios.post(url, new_row).then(function (result) {
@@ -104,31 +83,22 @@
                 var errors = [];
                 if (!new_row.name) {
                     errors.push("Укажите ФИО!");
-                }
-                if (!new_row.login) {
-                    errors.push("Укажите логин!");
-                }                
-                if (!new_row.password) {
-                    errors.push("Укажите пароль!");
-                }
-                if (!new_row.role_id) {
-                    errors.push("Укажите роль!");
-                }
+                }               
                 return errors;
             },
             edit_row: function (index) {
-                this.new_row = el.$data.users[index]
+                this.new_row = el.$data.role_list[index]
                 this.new_row.edit_id = this.new_row.id
                 this.$refs.add_button.click()
             },
             delete_row: function (index, id) {
                 if(window.confirm("Вы подтверждаете удаление?")){
-                    axios.post("/user/delete/" + id, {
+                    axios.post("/role/delete/" + id, {
                         id: id,
                     }).then(function (result) {
                         switch (result.data.status) {
                             case 200:
-                                el._data.users.splice(index, 1)
+                                el._data.role_list.splice(index, 1)
                                 break;
                             case 300:
                                 alert(result.message)
@@ -140,15 +110,15 @@
                 }
             },
             search: function (page) {
-                axios.post("/user/search/"+page, {                    
+                axios.post("/role/search/"+page, {
                     name: this._data.name,
                     role_id: el._data.role_id,
                 }).then(function (result) {
                     switch (result.data.status) {
                         case 200:
-                            el._data.users.splice()
+                            el._data.role_list.splice()
                             el._data.pages.splice(0);
-                            el._data.users = result.data.content;
+                            el._data.role_list = result.data.content;
                             el._data.total_rows = result.data.total_rows;
                             el._data.total_pages = Math.ceil(el._data.total_rows / el._data.per_page);
                             if(el._data.total_rows > 25){
@@ -189,8 +159,7 @@
         },
         mounted(){
             setTimeout(function(){
-                el.search(0)
-                el.get_role_list()
+                el.search(0)               
             },100)
         }
     })
