@@ -10,27 +10,34 @@
             </div>
             <div class="modal-body">
                 <div class="alert alert-danger" v-if="error">{{error}}</div>
-                <div class="form-row col-lg-12 col-md-12 col-sm-12 float-left my-2">                    
+                <div class="form-row col-lg-12 col-md-12 col-sm-12 float-left my-2">
+                    <label>Наименование</label>
                     <input type="text" class="form-control" v-model="new_row.name" placeholder="Наименование">
                 </div>
-                <div class="form-row col-lg-12 col-md-12 col-sm-12 float-left my-2">                    
+                <div class="form-row col-lg-12 col-md-12 col-sm-12 float-left my-2">
+                    <label>ID квартиры</label>
                     <input type="text" class="form-control" v-model="new_row.flat_id" placeholder="ID квартиры">
                 </div>
                 <div class="form-row col-lg-12 col-md-12 col-sm-12 float-left my-2">
+                    <label>ID счетчика</label>
                     <input type="text" class="form-control" v-model="new_row.acc_id" placeholder="ID счетчика">
                 </div>
-                <div class="form-row col-lg-12 col-md-12 col-sm-12 float-left my-2">                    
+                <div class="form-row col-lg-12 col-md-12 col-sm-12 float-left my-2">
+                    <label>Порт</label>
                     <input type="text" class="form-control" v-model="new_row.port" placeholder="Порт">
                 </div>
-                <div class="form-row col-lg-12 col-md-12 col-sm-12 float-left my-2">                    
+                <div class="form-row col-lg-12 col-md-12 col-sm-12 float-left my-2">
+                    <label>Значение</label>
                     <input type="text" class="form-control" v-model="new_row.value" placeholder="Значение">
                 </div>
-                <div class="form-row col-lg-12 col-md-12 col-sm-12 float-left my-2">                    
+                <div class="form-row col-lg-12 col-md-12 col-sm-12 float-left my-2">
+                    <label>Тип</label>
                     <select class="form-control float-left col-lg-12" v-model="new_row.meter_type_id">
                         <option v-for="{id,name} in meter_type_list" :value="id">{{name}}</option>
                     </select>
                 </div>                
                 <div class="form-row col-lg-12 col-md-12 col-sm-12 float-left my-2">
+                    <label>Номер стояка</label>
                     <input type="text" class="form-control" v-model="new_row.tube" placeholder="Номер стояка">
                 </div>
             </div>

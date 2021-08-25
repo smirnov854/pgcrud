@@ -11,15 +11,19 @@
             <div class="modal-body">
                 <div class="alert alert-danger" v-if="error">{{error}}</div>               
                 <div class="form-row col-lg-12 col-md-12 col-sm-12 float-left my-2">
+                    <label>ID квартиры</label>
                     <input type="text" class="form-control" v-model="new_row.flat_id" placeholder="ID квартиры">
                 </div>
                 <div class="form-row col-lg-12 col-md-12 col-sm-12 float-left my-2">
+                    <label>ID жильца</label>
                     <input type="text" class="form-control" v-model="new_row.person_id" placeholder="ID жильца">
                 </div>
                 <div class="form-row col-lg-12 col-md-12 col-sm-12 float-left my-2">
+                    <label>Телефон</label>
                     <input type="text" class="form-control" v-model="new_row.phone" placeholder="Телефон">
                 </div>
                 <div class="form-row col-lg-12 col-md-12 col-sm-12 float-left my-2">
+                    <label>Сообщение</label>
                     <input type="text" class="form-control" v-model="new_row.message" placeholder="Сообщение">
                 </div>
             </div>

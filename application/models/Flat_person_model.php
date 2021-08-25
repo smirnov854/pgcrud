@@ -21,6 +21,12 @@ class Flat_person_model extends CI_Model
         if(!empty($name)){
             $this->db->where("name",$name);
         }
+        if(!empty($flat_id)){
+            $this->db->where("flat_id",$flat_id);
+        }
+        if(!empty($flat_name)){
+            $this->db->where("flat.name",$flat_name);
+        }
         $query = $this->db->select("fl.*,flat.name as flat_name,count(*) OVER() AS total_count")
                           ->join("flat","flat.id=fl.flat_id","LEFT")
                           ->order_by("fl.id DESC")

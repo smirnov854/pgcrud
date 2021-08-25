@@ -8,6 +8,14 @@
             <label class="col-lg-3 c float-left">Телефон</label>
             <input class="form-control col-lg-9 float-left" type="text" v-model="phone">
         </div>
+        <div class="form-group col-lg-3 col-md-6 col-sm-12 float-left">
+            <label class="col-lg-4 c float-left">Номер квартиры</label>
+            <input class="form-control col-lg-8 float-left" type="text" v-model="flat_name">
+        </div>
+        <div class="form-group col-lg-3 col-md-6 col-sm-12 float-left">
+            <label class="col-lg-4 c float-left">ID квартиры</label>
+            <input class="form-control col-lg-8 float-left" type="number" v-model="flat_id">
+        </div>
         <button class="btn btn-success float-left" v-on:click="search(0)">Найти</button>
         <button class="btn btn-primary add_users float-right" data-toggle="modal" data-target="#add_user_modal" ref="add_button">Добавить</button>
         <div class="clearfix"></div>
@@ -20,7 +28,8 @@
         <tr>
             <th>#</th>
             <th>Дата</th>
-            <th>Квартира</th>
+            <th>ID Квартиры</th>
+            <th>№ Квартира</th>
             <th>ФИО</th>            
             <th>Email</th>
             <th>Телефон</th>
@@ -33,7 +42,8 @@
         <tr class="user_row" v-for="(user, index) in users">
             <td>{{user.id}}</td>
             <td>{{user.stamp}}</td>
-            <td>{{user.flat_name}} ({{user.flat_id}})</td>
+            <td>{{user.flat_id}}</td>
+            <td>{{user.flat_name}}</td>
             <td>{{user.name}}</td>
             <td>{{user.email}}</td>
             <td>{{user.phone}}</td>
@@ -64,6 +74,8 @@
             pages: [],
             fio_search: '',
             error: "",
+            flat_name: "",
+            flat_id : 0,
             new_user: {
                 edit_id: '0', 
                 email: '', 
@@ -155,6 +167,8 @@
                 axios.post("/flat_person/search/"+page, {
                     phone: this._data.phone,
                     name: this._data.name,
+                    flat_id : el._data.flat_id,                    
+                    flat_name: el._data.flat_name,
                 }).then(function (result) {
                     switch (result.data.status) {
                         case 200:

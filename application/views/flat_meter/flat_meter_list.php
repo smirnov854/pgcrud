@@ -1,3 +1,38 @@
+<!-- Date-picker itself -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js" type="text/javascript"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/v-mask/dist/v-mask.min.js"></script>
+
+<!--<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script>
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/fontawesome.css" integrity="sha384-eHoocPgXsiuZh+Yy6+7DsKAerLXyJmu2Hadh4QYyt+8v86geixVYwFqUvMU8X90l" crossorigin="anonymous"/>-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+<script src="https://cdn.jsdelivr.net/npm/pc-bootstrap4-datetimepicker@4.17/build/js/bootstrap-datetimepicker.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/pc-bootstrap4-datetimepicker@4.17/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/vue-bootstrap-datetimepicker@5"></script>
+<script>
+    // Initialize as global component
+    Vue.component('date-picker', VueBootstrapDatetimePicker);
+    $.extend(true, $.fn.datetimepicker.defaults, {
+        icons: {
+            time: 'far fa-clock',
+            date: 'far fa-calendar',
+            up: 'fas fa-arrow-up',
+            down: 'fas fa-arrow-down',
+            previous: 'fas fa-chevron-left',
+            next: 'fas fa-chevron-right',
+            today: 'fas fa-calendar-check',
+            clear: 'far fa-trash-alt',
+            close: 'far fa-times-circle'
+        }
+    });
+</script>
 <div id="meter_row_controller" class="justify-content-center mx-4 my-4">
     <div>  
         <div class="col-lg-9">
@@ -24,6 +59,19 @@
                 <label class="col-lg-4 c float-left">Значение</label>
                 <input class="form-control col-lg-8 float-left" type="text" v-model="flat_meter_value">
             </div>
+            <div class="form-group col-lg-4 col-md-6 col-sm-12 float-left">
+                <label class="col-lg-4 c float-left">Порт</label>
+                <input class="form-control col-lg-8 float-left" type="text" v-model="port_number">
+            </div>
+            <div class="form-group col-lg-4 col-md-6 col-sm-12 float-left">
+                <label class="col-lg-4 c float-left">Дата от</label>
+                <date-picker class="float-left datepicker col-lg-9" v-model='date_from' :config='options'></date-picker>
+            </div>
+            <div class="form-group col-lg-4 col-md-6 col-sm-12 float-left">
+                <label class="col-lg-4 c float-left">Дата по</label>
+                <date-picker class="float-left datepicker col-lg-9" v-model='date_to' :config='options'></date-picker>
+            </div>
+            
         </div>
         
         <div class="form-group col-lg-3 float-left">
@@ -90,16 +138,26 @@
 <script type="text/javascript">
     el = new Vue({
         el: "#meter_row_controller",        
-        data: {            
+        data: {
+            options: {
+                // https://momentjs.com/docs/#/displaying/
+                format: 'DD.MM.YYYY',
+                useCurrent: false,
+                showClear: true,
+                showClose: true,
+            },
             current_page: 0,
             total_pages: 0,
             total_rows: 0,
+            date_from:'',
+            date_to:'',
             flat_id: 0,
             tube:'',
             per_page: 25,
             pages: [],
             flat_meter_value:'',
             flat_name: '',
+            port_number:'',
             date_to: '',
             error: "",
             new_row : {edit_id:0},
@@ -200,7 +258,10 @@
                     flat_id : el._data.flat_id,
                     tube: el._data.tube,
                     flat_name: el._data.flat_name,
-                    flat_meter_value : el._data.flat_meter_value
+                    flat_meter_value : el._data.flat_meter_value,
+                    port_number : el._data.port_number,
+                    date_to : el._data.date_to,
+                    date_from : el._data.date_from
                 }).then(function (result) {
                     switch (result.data.status) {
                         case 200:

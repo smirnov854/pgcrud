@@ -10,18 +10,23 @@
                 <input type="hidden" v-model="new_user.edit_id">
                 <div class="alert alert-danger" v-if="error">{{error}}</div>
                 <div class="form-group">
-                    <input class="form-control" type="text" v-model="new_user.phone" placeholder="phone" required>
+                    <label>Телефон</label>
+                    <input class="form-control" type="text" v-model="new_user.phone" placeholder="Телефон" required>
                 </div>
                 <div class="form-group">
+                    <label>ID квартиры</label>
                     <input class="form-control" type="text" v-model="new_user.flat_id" placeholder="ID квартиры" required>
                 </div>
                 <div class="form-group">
+                    <label>Email</label>
                     <input class="form-control" type="text" v-model="new_user.email" placeholder="email" required>
                 </div>
                 <div class="form-group">
+                    <label>ФИО</label>
                     <input class="form-control" type="text" v-model="new_user.name" placeholder="Фамилия Имя Отчество" required>
                 </div>
                 <div class="form-group">
+                    <label>Пароль</label>
                     <input class="form-control" type="text" v-model="new_user.password" placeholder="Пароль" required>
                 </div>              
             </div>

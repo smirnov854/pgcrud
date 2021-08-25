@@ -28,6 +28,8 @@ class Flat_person extends CI_Controller
             $search_params = [
                 "name"=>$params->name,
                 "phone"=>$params->phone,
+                "flat_id"=>$params->flat_id,
+                "flat_name"=>$params->flat_name,                
                 "limit"=>25,
                 "offset"=>(!empty($page) ? ($page-1)*25:0)
             ];
@@ -35,10 +37,15 @@ class Flat_person extends CI_Controller
             if ($list === FALSE) {
                 throw new Exception("Ошибка обращения к БД!", 300);
             }
+            $cnt = count($list);
+            $total_rows = 0;
+            if($cnt>0){
+                $total_rows = $list[0]->total_count;
+            }
             $result = [
                 "status" => 200,
                 "content" => $list,
-                "total_rows"=>$list[0]->total_count,
+                "total_rows"=>$total_rows,
             ];
         } catch (Exception $ex) {
             $result = array("message" => $ex->getMessage(),

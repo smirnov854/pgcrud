@@ -31,8 +31,24 @@ class Flat_meter_model extends CI_Model
             $this->db->where("fl.value$flat_meter_value",NULL,FALSE);
         }
 
+        if(!empty($port_number)){
+            $this->db->where("fl.port",$port_number,FALSE);
+        }
+
         if(!empty($tube)){
             $this->db->where("tube LIKE '$tube'",NULL,FALSE);
+        }
+
+        if(!empty($date_from)){
+            $this->db->where("fl.stamp>='$date_from'::date",NULL,FALSE);
+        }
+
+        if(!empty($date_to)){
+            $this->db->where("fl.stamp<='$date_to'::date",NULLL,FALSE);
+        }
+
+        if(!empty($port_number)){
+            $this->db->where("fl.port",$port_number,FALSE);
         }
         
         $query = $this->db->select("fl.*, 

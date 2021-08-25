@@ -40,6 +40,9 @@ class Flat_meter extends CI_Controller
                 "tube"=>$params->tube,
                 "limit"=>25,
                 "flat_name"=>$params->flat_name,
+                "port_number"=>$params->port_number,
+                "date_from"=>$params->date_from,
+                "date_to"=>$params->date_to,
                 "flat_meter_value"=>$params->flat_meter_value,
                 "offset"=>(!empty($page) ? ($page-1)*25:0)
             ];

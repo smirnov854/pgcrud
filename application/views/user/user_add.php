@@ -10,17 +10,21 @@
                 <input type="hidden" v-model="new_row.edit_id">
                 <div class="alert alert-danger" v-if="error">{{error}}</div>
                 <div class="form-group">
+                    <label>ФИО</label>
                     <input class="form-control" type="text" v-model="new_row.name" placeholder="ФИО" required>
                 </div>
                 <div class="form-group">
+                    <label>Логин</label>
                     <input class="form-control" type="text" v-model="new_row.login" placeholder="Логин" required>
                 </div>
                 <div class="form-row col-lg-12 col-md-12 col-sm-12 float-left my-2">
+                    <label>Роль</label>
                     <select class="form-control float-left col-lg-12" v-model="new_row.role_id">
                         <option v-for="{id,name} in role_list" :value="id">{{name}}</option>
                     </select>
                 </div>                
                 <div class="form-group">
+                    <label>Пароль</label>
                     <input class="form-control" type="text" v-model="new_row.password" placeholder="Пароль" required>
                 </div>              
             </div>
