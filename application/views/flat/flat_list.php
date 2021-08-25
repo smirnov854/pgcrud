@@ -94,6 +94,9 @@
                         case 300:
                             alert(result.data.message)
                             break;
+                        default:
+                            alert(result.data.message)
+                            break;
                     }
                 }).catch(function (e) {
                     console.log(e)
@@ -121,6 +124,9 @@
                                 el._data.flats.splice(index, 1)
                                 break;
                             case 300:
+                                alert(result.data.message)
+                                break;
+                            default:
                                 alert(result.data.message)
                                 break;
                         }
@@ -172,6 +178,9 @@
                             }
                             break;
                         case 300:
+                            break;
+                        default:
+                            alert(result.data.message)
                             break;
                     }
                 }).catch(function (e) {

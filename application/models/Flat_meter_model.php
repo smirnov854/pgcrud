@@ -23,16 +23,26 @@ class Flat_meter_model extends CI_Model
             $this->db->where("flat_id",$flat_id,FALSE);
         }
 
+        if(!empty($flat_name)){
+            $this->db->where("flat.name LIKE '$flat_name'",NULL,FALSE);
+        }
+
+        if(!empty($flat_meter_value)){
+            $this->db->where("fl.value$flat_meter_value",NULL,FALSE);
+        }
+
         if(!empty($tube)){
-            $this->db->where("tube LIKE '%$tube%'",NULL,FALSE);
+            $this->db->where("tube LIKE '$tube'",NULL,FALSE);
         }
         
         $query = $this->db->select("fl.*, 
                                     mt.name as meter_name,
                                     flat.name as flat_name,
+                                    acc.deveui as deveui, 
                                     count(*) OVER() AS total_count")
                           ->join("meter_type mt","mt.id=fl.meter_type_id","LEFT")
                           ->join("flat","flat.id=fl.flat_id","LEFT")
+                          ->join("acc","acc.id=fl.acc_id","LEFT")
                           ->order_by("fl.id DESC")
                           ->get("flat_meter fl");
         

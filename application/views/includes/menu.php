@@ -9,6 +9,7 @@ $user_data = $this->session->userdata();
             
                 <li class="nav-item"><a class="nav-link" href="/user/show_users">Пользователи</a></li>
                 <li class="nav-item"><a class="nav-link" href="/role/show_list">Роли</a></li>
+                <li class="nav-item"><a class="nav-link" href="/rights/show_list">Права</a></li>
                 <li class="nav-item"><a class="nav-link" href="/flat_person/show_list">Жильцы</a></li>
                 <li class="nav-item"><a class="nav-link" href="/flat/show_list">Квартиры</a></li>
                 <li class="nav-item"><a class="nav-link" href="/flat_meter/show_list">Датчики</a></li>

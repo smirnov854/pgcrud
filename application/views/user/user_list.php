@@ -95,6 +95,9 @@
                         case 300:
                             alert(result.data.message)
                             break;
+                        default:
+                            alert(result.data.message)
+                            break;
                     }
                 }).catch(function (e) {
                     console.log(e)
@@ -132,6 +135,9 @@
                                 break;
                             case 300:
                                 alert(result.message)
+                                break;
+                            default:
+                                alert(result.data.message)
                                 break;
                         }
                     }).catch(function (e) {
@@ -180,6 +186,9 @@
                             }
                             break;
                         case 300:
+                            break;
+                        default:
+                            alert(result.data.message)
                             break;
                     }
                 }).catch(function (e) {

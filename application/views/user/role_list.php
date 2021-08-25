@@ -47,8 +47,9 @@
             pages: [],
             fio_search: '',
             error: "",
-            new_row : { edit_id: '0',  },
-            role_list: [],            
+            new_row : { edit_id: '0',  rights_id:[], rights_id_tmp:[]},
+            role_list: [],
+            rights_list: [],            
         },
         methods: {           
             add_row: function (new_row) {
@@ -69,9 +70,12 @@
                             alert(result.data.message);
                             document.querySelector(".close_dialog").click();
                             el.search(1);
-                            el.$data.new_row = {};
+                            el.$data.new_row = {edit_id:0};
                             break;
                         case 300:
+                            alert(result.data.message)
+                            break;
+                        default:
                             alert(result.data.message)
                             break;
                     }
@@ -89,6 +93,13 @@
             edit_row: function (index) {
                 this.new_row = el.$data.role_list[index]
                 this.new_row.edit_id = this.new_row.id
+                if (this.new_row.rights_id && this.new_row.rights_id.length > 0) {                    
+                    let rights = this.new_row.rights_id.split(",");
+                    this.new_row.rights_id_tmp = [];
+                    for (let i in rights) {
+                        this.new_row.rights_id_tmp.push(rights[i].trim())                     
+                    }                  
+                }
                 this.$refs.add_button.click()
             },
             delete_row: function (index, id) {
@@ -103,11 +114,21 @@
                             case 300:
                                 alert(result.message)
                                 break;
+                            default:
+                                alert(result.data.message)
+                                break;
                         }
                     }).catch(function (e) {
                         console.log(e)
                     })
                 }
+            },
+            get_rights_list:function(){
+                axios.post("/role/get_rights_list/", {}).then(function (result) {
+                    el._data.rights_list = result.data.contents;
+                }).catch(function (e) {
+                    console.log(e)
+                })
             },
             search: function (page) {
                 axios.post("/role/search/"+page, {
@@ -151,6 +172,9 @@
                             break;
                         case 300:
                             break;
+                        default:
+                            alert(result.data.message)
+                            break;
                     }
                 }).catch(function (e) {
                     console.log(e)
@@ -159,7 +183,8 @@
         },
         mounted(){
             setTimeout(function(){
-                el.search(0)               
+                el.search(0)      
+                el.get_rights_list()
             },100)
         }
     })

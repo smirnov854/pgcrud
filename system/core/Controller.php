@@ -84,7 +84,7 @@ class CI_Controller {
             if(empty($this->session->userdata("role_id"))){
                 redirect("login");
             }
-            $user_data = $this->session->userdata();
+            $user_data = $this->session->userdata();            
             if($user_data['role_id'] != 1){
                 if(!$this->check_rights($user_data['role_id'],$this->uri->segment(1),$this->uri->segment(2))){
                     if(stripos($_SERVER['HTTP_ACCEPT'],"json") !== FALSE){

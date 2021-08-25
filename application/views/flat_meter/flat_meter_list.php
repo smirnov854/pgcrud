@@ -2,9 +2,15 @@
     <div>  
         <div class="col-lg-9">
             <div class="form-group col-lg-4 float-left">
-                <select class="form-control float-left col-lg-12" v-model="meter_type_id" multiple style="height:200px !important; width: 250px">
+                <select class="form-control float-left col-lg-12 meter_type_id" v-model="meter_type_id" multiple style="height:200px !important; width: 250px">                    
                     <option v-for="{id,name} in meter_type_list" :value="id">{{name}}</option>
                 </select>
+                <div class="clearfix"></div>
+                <button class="btn btn-danger" v-on:click="deselect_type_id()">X</button>
+            </div>
+            <div class="form-group col-lg-4 col-md-6 col-sm-12 float-left">
+                <label class="col-lg-4 c float-left">Номер квартиры</label>
+                <input class="form-control col-lg-8 float-left" type="text" v-model="flat_name">
             </div>
             <div class="form-group col-lg-4 col-md-6 col-sm-12 float-left">
                 <label class="col-lg-4 c float-left">ID квартиры</label>
@@ -13,6 +19,10 @@
             <div class="form-group col-lg-4 col-md-6 col-sm-12 float-left">
                 <label class="col-lg-4 c float-left">Номер стояка</label>
                 <input class="form-control col-lg-8 float-left" type="text" v-model="tube">
+            </div>
+            <div class="form-group col-lg-4 col-md-6 col-sm-12 float-left">
+                <label class="col-lg-4 c float-left">Значение</label>
+                <input class="form-control col-lg-8 float-left" type="text" v-model="flat_meter_value">
             </div>
         </div>
         
@@ -32,8 +42,9 @@
             <thead>
             <tr>
                 <th>id</th>
-                <th>ID счетчика</th>
-                <th>Номер (ID квартиры)</th>                
+                <th>DEV EUI</th>
+                <th>Номер квартиры</th>
+                <th>ID квартиры</th>
                 <th>Датчик</th>
                 <th>Порт</th>
                 <th>Дата получения значения</th>
@@ -50,8 +61,9 @@
             <tbody>
             <tr v-for="(meter_row,index) in meter_list">
                 <td>{{meter_row.id}}</td>
-                <td>{{meter_row.acc_id}}</td>
-                <td>{{meter_row.flat_name}} ({{meter_row.flat_id}})</td>
+                <td>{{meter_row.deveui}}</td>
+                <td>{{meter_row.flat_name}} </td>
+                <td>{{meter_row.flat_id}}</td>
                 <td>{{meter_row.meter_name}} ({{meter_row.name}})</td>                
                 <td>{{meter_row.port}}</td>
                 <td>{{meter_row.stamp}}</td>
@@ -86,7 +98,8 @@
             tube:'',
             per_page: 25,
             pages: [],
-            date_from: '',
+            flat_meter_value:'',
+            flat_name: '',
             date_to: '',
             error: "",
             new_row : {edit_id:0},
@@ -107,6 +120,9 @@
                             case 300:
                                 alert(result.message)
                                 break;
+                            default:
+                                alert(result.data.message)
+                                break;
                         }
                     }).catch(function (e) {
                         console.log(e)
@@ -114,7 +130,8 @@
                 }
             },
             get_type_list:function(){
-                axios.post("/flat_meter/get_type_list/", {}).then(function (result) {                    
+                axios.post("/flat_meter/get_type_list/", {}).then(function (result) {
+                    //el._data.meter_type_list.push({id:0,name:'Не выбрано'})
                     el._data.meter_type_list = result.data.contents;
                 }).catch(function (e) {
                     console.log(e)
@@ -163,6 +180,9 @@
                         case 300:
                             alert(result.data.message)
                             break;
+                        default:
+                            alert(result.data.message)
+                            break;
                     }
                 }).catch(function (e) {
                     console.log(e)
@@ -179,6 +199,8 @@
                     meter_type_id: el._data.meter_type_id,
                     flat_id : el._data.flat_id,
                     tube: el._data.tube,
+                    flat_name: el._data.flat_name,
+                    flat_meter_value : el._data.flat_meter_value
                 }).then(function (result) {
                     switch (result.data.status) {
                         case 200:
@@ -219,11 +241,17 @@
                             break;
                         case 300:
                             break;
+                        default:
+                            alert(result.data.message)
+                            break;
                     }
                 }).catch(function (e) {
                     console.log(e)
                 })
-            }            
+            },
+            deselect_type_id: function(){              
+                el._data.meter_type_id.splice(0)                
+            }
         },
         mounted(){
             setTimeout(function(){

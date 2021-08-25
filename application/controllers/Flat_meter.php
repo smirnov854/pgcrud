@@ -21,7 +21,7 @@ class Flat_meter extends CI_Controller
     }
     
     public function get_type_list(){
-        $meter_type_list = $this->flat_meter_model->get_types();
+        $meter_type_list = $this->flat_meter_model->get_types();        
         $result = [
             "status"=>200,
             "contents"=>$meter_type_list,
@@ -39,6 +39,8 @@ class Flat_meter extends CI_Controller
                 "flat_id"=>$params->flat_id,
                 "tube"=>$params->tube,
                 "limit"=>25,
+                "flat_name"=>$params->flat_name,
+                "flat_meter_value"=>$params->flat_meter_value,
                 "offset"=>(!empty($page) ? ($page-1)*25:0)
             ];
             $meter_list = $this->flat_meter_model->get_list($search_params);

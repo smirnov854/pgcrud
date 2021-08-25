@@ -1,12 +1,12 @@
 <?php
 
 
-class Role extends CI_Controller
+class Rights extends CI_Controller
 {
     
     public function __construct() {        
         parent::__construct();
-        $this->load->model("role_model");       
+        $this->load->model("rights_model");       
     }
 
     public function index() {
@@ -16,7 +16,7 @@ class Role extends CI_Controller
     public function show_list(){
         $this->load->view('includes/header');
         $this->load->view("includes/menu");
-        $this->load->view("user/role_list");
+        $this->load->view("user/rights_list");
         $this->load->view('includes/footer');
     }
 
@@ -28,14 +28,14 @@ class Role extends CI_Controller
                 "limit"=>25,
                 "offset"=>(!empty($page) ? ($page-1)*25:0)
             ];
-            $list = $this->role_model->get_list($search_params);
+            $list = $this->rights_model->get_list($search_params);
             if ($list === FALSE) {
                 throw new Exception("Ошибка обращения к БД!", 300);
             }
             $result = [
                 "status" => 200,
                 "content" => $list,
-                "total_rows"=>$list[0]->total_count,
+                "total_rows"=>(!empty($list[0])&& count($list)>0 ? $list[0]->total_count : 0),
             ];
         } catch (Exception $ex) {
             $result = array("message" => $ex->getMessage(),
@@ -44,30 +44,25 @@ class Role extends CI_Controller
         echo json_encode($result);
     }
     
-    public function add_new_role(){
+    public function add_new_rights(){
         $params = json_decode(file_get_contents('php://input'));
         $common_info = array(            
-            "name" => $params->name,            
+            "name" => $params->name,
+            "controller" => $params->controller,
+            "method" => $params->method,
         );
-        $rights_list =  $params->right_id;
+
         try {
-            if (empty($common_info['name'])){
+            if (empty($common_info['name']) || empty($common_info['controller']) || empty($common_info['method'])){
                 throw new Exception("Ошибка заполнения формы!", 300);
             }           
-            $res = $this->role_model->add($common_info);
+            $res = $this->rights_model->add($common_info);
             if (!$res) {
                 throw new Exception("Ошибка обращения к базе данных!", 2);
             }
-            if(!empty($rights_list)){
-                $res = $this->role_model->add_connection($res,$rights_list);
-                if (!$res) {
-                    throw new Exception("Ошибка добавления связки роль-права!", 2);
-                }    
-            }
-            
             $result = [
                 "status" => 200,
-                "message" => "Роль добавлена!",
+                "message" => "Права добавлены!",
                 "content"=>[]
             ];
         } catch (Exception $ex) {
@@ -77,29 +72,25 @@ class Role extends CI_Controller
         echo json_encode($result);
     }
     
-    public function edit_role($id){
+    public function edit_rights($id){
         $params = json_decode(file_get_contents('php://input'));
         $common_info = array(
             "name" => $params->name,
+            "controller" => $params->controller,
+            "method" => $params->method,
         );
-        $rights_list =  $params->rights_id_tmp;
+
         try {
-            if (empty($common_info['name'])){
+            if (empty($common_info['name']) || empty($common_info['controller']) || empty($common_info['method'])){
                 throw new Exception("Ошибка заполнения формы!", 300);
             }
-            $res = $this->role_model->edit($id,$common_info);
+            $res = $this->rights_model->edit($id,$common_info);
             if (!$res) {
                 throw new Exception("Ошибка обращения к базе данных!", 2);
             }
-            if(!empty($rights_list)){
-                $res = $this->role_model->add_connection($id,$rights_list);
-                if (!$res) {
-                    throw new Exception("Ошибка добавления связки роль-права!", 2);
-                }
-            }
             $result = [
                 "status" => 200,
-                "message" => "Роль отредактирована!",
+                "message" => "Права отредактированы!",
                 "content"=>[]
             ];
         } catch (Exception $ex) {
@@ -115,7 +106,7 @@ class Role extends CI_Controller
             if(empty($id) || !is_numeric($id)){
                 throw new Exception("Ошибка получения id!",301);
             }
-            if(!$this->role_model->delete($id)){
+            if(!$this->rights_model->delete($id)){
                 throw new Exception('Ошибка удаления',302);
             }
             $result = [
@@ -127,16 +118,5 @@ class Role extends CI_Controller
         }
         echo json_encode($result);
     }
-
-    public function get_rights_list() {
-        $meter_type_list = $this->role_model->get_rights_list();
-        $result = [
-            "status" => 200,
-            "contents" => $meter_type_list,
-        ];
-        echo json_encode($result);
-    }
-
-
 
 }

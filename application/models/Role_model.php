@@ -13,8 +13,10 @@ class Role_model extends CI_Model
         }        
        
         
-        $res = $this->db->select("r.*,   count(*) OVER() AS total_count",FALSE)                         
-                         ->order_by('id DESC')
+        $res = $this->db->select("r.*, string_agg(rr.right_id::character varying,',' order by rr.id) as rights_id,  count(*) OVER() AS total_count",FALSE)       
+                         ->join("role_rights rr","rr.role_id=r.id","LEFT")    
+                         ->order_by('r.id DESC')
+                         ->group_by('r.id')
                          ->get("role r", FALSE);      
               
         if (!$res) {
@@ -47,4 +49,34 @@ class Role_model extends CI_Model
         }
         return $query_result;
     }
+    
+    function get_rights_list()
+    {
+        $query = $this->db->get("rights");
+        return $query->result();
+    }
+    
+    public function add_connection($role_id,$rights){
+        try {
+            if(empty($role_id)){
+                throw new Exception("Ошибка",1);
+            }
+            if(empty($rights) || !is_array($rights)){
+                throw new Exception("Ошибка",1);
+            }
+            $this->db->where("role_id",$role_id)->delete("role_rights");
+            foreach($rights as $right_id){                
+                $insert_array = [
+                    "role_id"=>$role_id,
+                    "right_id"=>$right_id
+                ];
+                $this->db->insert("role_rights",$insert_array,FALSE);
+            }
+            $result = true;
+        } catch (Exception $ex) {
+            $result = false;
+        }
+        return $result;
+    }
+
 }
