@@ -13,7 +13,7 @@ class Flat_meter extends CI_Controller
         $this->show_list();
     }
     
-    public function show_list(){          
+    public function show_list(){
         $this->load->view('includes/header');
         $this->load->view("includes/menu");
         $this->load->view("flat_meter/flat_meter_list");

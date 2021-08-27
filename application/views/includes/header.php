@@ -13,6 +13,15 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <meta name="viewport" content="width=600px, initial-scale=0.6">
+    <title>
+    <?=$this->router->fetch_class() == 'user' ? 'Пользователи' : ''?>
+    <?=$this->router->fetch_class() == 'role' ? 'Роли' : ''?>
+    <?=$this->router->fetch_class() == 'rights' ? 'Права' : ''?>
+    <?=$this->router->fetch_class() == 'flat_person' ? 'Жильцы' : ''?>
+    <?=$this->router->fetch_class() == 'flat' ? 'Квартиры' : ''?>
+    <?=$this->router->fetch_class() == 'flat_meter' ? 'Датчики' : ''?>
+    <?=$this->router->fetch_class() == 'warnings' ? 'Предупреждения' : ''?>
+    </title>
 </head>
 <body>
 <div class="container-fluid">

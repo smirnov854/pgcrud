@@ -4,15 +4,9 @@
     <list default="true" id="ee1fd98d-5c3c-4f71-ad84-41a0c82ea3f3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/Flat_meter.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Flat_meter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Flat_person.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Flat_person.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/Flat_meter_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Flat_meter_model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/Flat_person_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Flat_person_model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/flat_meter/flat_meter_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/flat_meter/flat_meter_add.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/flat_meter/flat_meter_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/flat_meter/flat_meter_list.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/flat_person/flat_person_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/flat_person/flat_person_add.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/flat_person/flat_person_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/flat_person/flat_person_list.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/user/user_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/user/user_add.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/warning/warning_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/warning/warning_add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/includes/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/includes/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/includes/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/includes/menu.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +99,7 @@
       <workItem from="1629581869277" duration="4551000" />
       <workItem from="1629657690386" duration="2209000" />
       <workItem from="1629664096020" duration="47026000" />
-      <workItem from="1629889606413" duration="2794000" />
+      <workItem from="1629889606413" duration="6817000" />
     </task>
     <task id="LOCAL-00001" summary="add CRUD for tables&#10;backup data">
       <created>1629750271175</created>
@@ -128,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629890042902</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add role rights">
+      <created>1629892862767</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1629892862767</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,10 +149,10 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2472" y="197" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629285759503" />
-    <state x="2505" y="107" key="CommitChangelistDialog2" timestamp="1629890042149">
+    <state x="2505" y="107" key="CommitChangelistDialog2" timestamp="1629892862272">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2505" y="107" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629890042149" />
+    <state x="2505" y="107" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629892862272" />
     <state x="2660" y="280" key="FileChooserDialogImpl" timestamp="1629664105117">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -196,10 +197,10 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2381" y="171" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629229946792" />
-    <state x="2472" y="272" key="Vcs.Push.Dialog.v2" timestamp="1629890044483">
+    <state x="2472" y="272" key="Vcs.Push.Dialog.v2" timestamp="1629892864345">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2472" y="272" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629890044483" />
+    <state x="2472" y="272" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629892864345" />
     <state x="2689" y="323" width="491" height="439" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1629761147489">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>

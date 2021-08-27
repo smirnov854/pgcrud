@@ -44,7 +44,7 @@ class Flat_meter_model extends CI_Model
         }
 
         if(!empty($date_to)){
-            $this->db->where("fl.stamp<='$date_to'::date",NULLL,FALSE);
+            $this->db->where("fl.stamp<='$date_to'::date",NULL,FALSE);
         }
 
         if(!empty($port_number)){
