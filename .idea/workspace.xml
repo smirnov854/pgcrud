@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ee1fd98d-5c3c-4f71-ad84-41a0c82ea3f3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Flat_meter.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Flat_meter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/Flat_meter_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Flat_meter_model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/includes/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/includes/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/includes/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/includes/menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/flat/flat_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/flat/flat_list.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/flat_meter/flat_meter_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/flat_meter/flat_meter_list.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +66,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/application/views/user" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -99,7 +97,8 @@
       <workItem from="1629581869277" duration="4551000" />
       <workItem from="1629657690386" duration="2209000" />
       <workItem from="1629664096020" duration="47026000" />
-      <workItem from="1629889606413" duration="6817000" />
+      <workItem from="1629889606413" duration="7437000" />
+      <workItem from="1630175745340" duration="195000" />
     </task>
     <task id="LOCAL-00001" summary="add CRUD for tables&#10;backup data">
       <created>1629750271175</created>
@@ -129,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629892862767</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add role rights">
+      <created>1630056707324</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1630056707324</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,9 +155,10 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2472" y="197" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629285759503" />
-    <state x="2505" y="107" key="CommitChangelistDialog2" timestamp="1629892862272">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="390" y="101" key="CommitChangelistDialog2" timestamp="1630056706200">
+      <screen x="0" y="0" width="1280" height="980" />
     </state>
+    <state x="390" y="101" key="CommitChangelistDialog2/0.0.1280.980@0.0.1280.980" timestamp="1630056706200" />
     <state x="2505" y="107" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629892862272" />
     <state x="2660" y="280" key="FileChooserDialogImpl" timestamp="1629664105117">
       <screen x="1920" y="0" width="1920" height="1040" />
@@ -197,9 +204,10 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2381" y="171" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629229946792" />
-    <state x="2472" y="272" key="Vcs.Push.Dialog.v2" timestamp="1629892864345">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="368" y="256" key="Vcs.Push.Dialog.v2" timestamp="1630056708695">
+      <screen x="0" y="0" width="1280" height="980" />
     </state>
+    <state x="368" y="256" key="Vcs.Push.Dialog.v2/0.0.1280.980@0.0.1280.980" timestamp="1630056708695" />
     <state x="2472" y="272" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629892864345" />
     <state x="2689" y="323" width="491" height="439" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1629761147489">
       <screen x="1920" y="0" width="1920" height="1040" />
@@ -233,10 +241,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="693" y="0" width="1221" height="1055" key="dock-window-4/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629755959644" />
-    <state x="2536" y="245" key="run.anything.popup" timestamp="1629582535800">
+    <state x="2536" y="245" key="run.anything.popup" timestamp="1630175840522">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2536" y="245" key="run.anything.popup/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1629582535800" />
+    <state x="2536" y="245" key="run.anything.popup/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1630175840522" />
     <state x="2543" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1629885952373">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>

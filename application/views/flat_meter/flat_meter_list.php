@@ -35,7 +35,7 @@
 </script>
 <div id="meter_row_controller" class="justify-content-center mx-4 my-4">
     <div>  
-        <div class="col-lg-9">
+        <div class="col-lg-9 float-left">
             <div class="form-group col-lg-4 float-left">
                 <select class="form-control float-left col-lg-12 meter_type_id" v-model="meter_type_id" multiple style="height:200px !important; width: 250px">                    
                     <option v-for="{id,name} in meter_type_list" :value="id">{{name}}</option>
@@ -72,6 +72,9 @@
                 <date-picker class="float-left datepicker col-lg-9" v-model='date_to' :config='options'></date-picker>
             </div>
             
+        </div>
+        <div class="col-lg-3 float-left">
+            Инструкция Инструкция Инструкция ИнструкцияИнструкция ИнструкцияИнструкция ИнструкцияИнструкция ИнструкцияИнструкция ИнструкцияИнструкция ИнструкцияИнструкция ИнструкцияИнструкция ИнструкцияИнструкция ИнструкцияИнструкция ИнструкцияИнструкция ИнструкцияИнструкция ИнструкцияИнструкция ИнструкцияИнструкция Инструкция
         </div>
         
         <div class="form-group col-lg-3 float-left">

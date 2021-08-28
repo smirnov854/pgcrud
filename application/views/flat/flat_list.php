@@ -1,11 +1,14 @@
 <div id="vue-container" class="container-fluid">
     <div class="col-lg-12 col-md-12 col-sm-12 my-3">
-        <div class="form-group col-lg-3 col-md-6 col-sm-12 float-left">
+        <div class="form-group col-lg-9 col-md-6 col-sm-12 float-left">
             <label class="col-lg-4 c float-left">Наименование</label>
             <input class="form-control col-lg-8 float-left" type="text" v-model="name">
+        </div>       
+        <div class="col-lg-3 float-left">
+            <button class="btn btn-success float-left" v-on:click="search(0)">Найти</button>
+            <button class="btn btn-primary add_flat float-right" data-toggle="modal" data-target="#add_flat" ref="add_button" v-on:click="">Добавить</button>
         </div>
-        <button class="btn btn-success float-left" v-on:click="search(0)">Найти</button>
-        <button class="btn btn-primary add_flat float-right" data-toggle="modal" data-target="#add_flat" ref="add_button" v-on:click="">Добавить</button>
+        
         <div class="clearfix"></div>
         <div>Всего записей : {{total_rows}}</div>
     </div>
